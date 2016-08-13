@@ -1,9 +1,14 @@
+# IDEA Files
+.idea/
+
+# Temporary/build directories.
+target/
+tmp/
+
+# Compiled Binaries
 *.class
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
+# Binary Archives
 *.jar
 *.war
 *.ear
