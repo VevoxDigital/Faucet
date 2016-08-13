@@ -6,7 +6,42 @@
 
     <groupId>io.vevox</groupId>
     <artifactId>faucet</artifactId>
-    <version>0.1.0-rc.1</version>
+    <version>1.10.2-R0.1</version>
 
+    <name>Faucet</name>
+    <organization>
+        <name>Vevox Digital</name>
+        <url>http://vevox.io</url>
+    </organization>
+
+    <repositories>
+
+        <!-- Spigot/Bukkit -->
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+
+    </repositories>
+
+    <dependencies>
+
+        <!-- Spigot and SpigotAPI -->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot</artifactId>
+            <version>1.10.2-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JUnit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
 
 </project>
