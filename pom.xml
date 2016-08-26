@@ -14,6 +14,8 @@
         <url>http://vevox.io</url>
     </organization>
 
+    <packaging>jar</packaging>
+
     <repositories>
 
         <!-- Spigot/Bukkit -->
@@ -43,5 +45,9 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <finalName>${project.name}-${project.version}</finalName>
+    </build>
 
 </project>
