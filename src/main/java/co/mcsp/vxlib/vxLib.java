@@ -1,4 +1,4 @@
-package io.vevox.faucet;
+package co.mcsp.vxlib;
 
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -7,22 +7,22 @@ import java.util.function.Predicate;
  * @author Matthew Struble
  */
 @SuppressWarnings({"unused", "WeakerAccess"})
-public class Faucet extends FaucetPlugin {
+public class vxLib extends vxPlugin {
 
   /**
    * A no-implementation consumer function for libraries and plugins
    * not wishing to implement
    * {@link #load(Consumer)} and/or {@link #disable(Consumer)}.
    */
-  public static final Consumer<Faucet> noImplC = (f) -> { };
+  public static final Consumer<vxLib> noImplC = (f) -> { };
 
   /**
    * A no-implementation true-returning predicate function for libraries
    * and plugins not with to implement {@link #enable(Predicate)}.
    */
-  public static final Predicate<Faucet> noImplP = (f) -> true;
+  public static final Predicate<vxLib> noImplP = (f) -> true;
 
-  protected static Faucet instance;
+  protected static vxLib instance;
 
   {
     // Load
