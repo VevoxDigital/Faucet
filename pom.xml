@@ -4,17 +4,25 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.vevox</groupId>
-    <artifactId>faucet</artifactId>
-    <version>1.10.2-R0.1</version>
+    <groupId>co.mcsp</groupId>
+    <artifactId>vxlib</artifactId>
+    <version>1.10.2-r0.1</version>
+    <packaging>jar</packaging>
 
-    <name>Faucet</name>
+    <name>vxLib</name>
+
     <organization>
         <name>Vevox Digital</name>
         <url>http://vevox.io</url>
     </organization>
 
-    <packaging>jar</packaging>
+    <developers>
+        <developer>
+            <id>CynicalBusiness</id>
+            <name>Matthew Struble</name>
+            <email>matt@vevox.io</email>
+        </developer>
+    </developers>
 
     <repositories>
 
@@ -48,9 +56,31 @@
 
     <build>
         <finalName>${project.name}-${project.version}</finalName>
-    </build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
 
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <maven.compiler.source>1.8</maven.compiler.source>
+        <!-- Resource filtering -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>plugin.yml</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <!-- JDK 8 compatibility -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
