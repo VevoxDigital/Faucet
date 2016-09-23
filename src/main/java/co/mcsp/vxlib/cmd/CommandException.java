@@ -1,5 +1,7 @@
 package co.mcsp.vxlib.cmd;
 
+import org.bukkit.command.Command;
+
 /**
  * Generic exception used in commands.
  *
@@ -58,6 +60,18 @@ public class CommandException extends Exception {
   public static class ConsoleExecutionException extends CommandException {
     ConsoleExecutionException() {
       super("Command must be executed by a player");
+    }
+  }
+
+  /**
+   * Exception used when a command is not handled by the delegator.
+   *
+   * @author Matthew Struble
+   * @since 1.10.2-r0.1
+   */
+  public static class UnhandledCommandException extends CommandException {
+    UnhandledCommandException(Command cmd) {
+      super("Command " + cmd.getName() + " is not handled by this delegator");
     }
   }
 
