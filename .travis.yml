@@ -3,6 +3,9 @@ jdk:
  - oraclejdk8
  #- openjdk8
 
+script: mvn clean verify
+
+sudo: false
 branches:
   only:
     - master
