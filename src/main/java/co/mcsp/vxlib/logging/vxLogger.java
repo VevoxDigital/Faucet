@@ -110,14 +110,14 @@ public class vxLogger {
    * @param message The message to send.
    *
    * @throws IllegalArgumentException If the level or message is null.
-   * @see #logF(LoggingLevel, String, Object...)
+   * @see #log(LoggingLevel, String, Object...)
    * @since 1.10.2-r0.1
    */
   public void log(LoggingLevel level, String message) throws IllegalArgumentException {
     Validate.notNull(level);
     Validate.notNull(message);
     transports.entrySet().stream()
-        .filter(e -> e.getValue().level().ordinal() >= level.ordinal())
+        .filter(e -> level.ordinal() >= e.getValue().level().ordinal())
         .forEach(e -> e.getValue().receive(new Transport.TransportedMessage(message, this, level)));
     if (parent != null)
       parent.log(level, message);
@@ -135,8 +135,182 @@ public class vxLogger {
    * @see #log(LoggingLevel, String)
    * @since 1.10.2-r0.1
    */
-  public void logF(LoggingLevel level, String message, Object... args) throws IllegalArgumentException {
+  public void log(LoggingLevel level, String message, Object... args) throws IllegalArgumentException {
     log(level, String.format(message, args));
+  }
+
+  /**
+   * Logs a {@link LoggingLevel#SILLY silly} message to the logger.
+   *
+   * @param message The message to log.
+   *
+   * @throws IllegalArgumentException If the message is null.
+   * @see #silly(String, Object...)
+   * @see #log(LoggingLevel, String)
+   * @since 1.10.2-r0.1
+   */
+  public void silly(String message) throws IllegalArgumentException {
+    log(LoggingLevel.SILLY, message);
+  }
+
+  /**
+   * Logs a formatted {@link LoggingLevel#SILLY silly} message to the logger.
+   *
+   * @param message The message to log.
+   * @param args    The objects to format.
+   *
+   * @throws IllegalArgumentException If the message or args are null.
+   * @see #silly(String)
+   * @see #log(LoggingLevel, String, Object...)
+   * @since 1.10.2-r0.1
+   */
+  public void silly(String message, Object... args) throws IllegalArgumentException {
+    log(LoggingLevel.SILLY, message, args);
+  }
+
+  /**
+   * Logs a {@link LoggingLevel#DEBUG debug} message to the logger.
+   *
+   * @param message The message to log.
+   *
+   * @throws IllegalArgumentException If the message is null.
+   * @see #debug(String, Object...)
+   * @see #log(LoggingLevel, String)
+   * @since 1.10.2-r0.1
+   */
+  public void debug(String message) throws IllegalArgumentException {
+    log(LoggingLevel.DEBUG, message);
+  }
+
+  /**
+   * Logs a formatted {@link LoggingLevel#DEBUG debug} message to the logger.
+   *
+   * @param message The message to log.
+   * @param args    The objects to format.
+   *
+   * @throws IllegalArgumentException If the message or args are null.
+   * @see #debug(String)
+   * @see #log(LoggingLevel, String, Object...)
+   * @since 1.10.2-r0.1
+   */
+  public void debug(String message, Object... args) throws IllegalArgumentException {
+    log(LoggingLevel.DEBUG, message, args);
+  }
+
+  /**
+   * Logs a {@link LoggingLevel#VERBOSE verbose} message to the logger.
+   *
+   * @param message The message to log.
+   *
+   * @throws IllegalArgumentException If the message is null.
+   * @see #verbose(String, Object...)
+   * @see #log(LoggingLevel, String)
+   * @since 1.10.2-r0.1
+   */
+  public void verbose(String message) throws IllegalArgumentException {
+    log(LoggingLevel.VERBOSE, message);
+  }
+
+  /**
+   * Logs a formatted {@link LoggingLevel#VERBOSE verbose} message to the logger.
+   *
+   * @param message The message to log.
+   * @param args    The objects to format.
+   *
+   * @throws IllegalArgumentException If the message or args are null.
+   * @see #verbose(String)
+   * @see #log(LoggingLevel, String, Object...)
+   * @since 1.10.2-r0.1
+   */
+  public void verbose(String message, Object... args) throws IllegalArgumentException {
+    log(LoggingLevel.VERBOSE, message, args);
+  }
+
+  /**
+   * Logs a {@link LoggingLevel#INFO info} message to the logger.
+   *
+   * @param message The message to log.
+   *
+   * @throws IllegalArgumentException If the message is null.
+   * @see #info(String, Object...)
+   * @see #log(LoggingLevel, String)
+   * @since 1.10.2-r0.1
+   */
+  public void info(String message) throws IllegalArgumentException {
+    log(LoggingLevel.INFO, message);
+  }
+
+  /**
+   * Logs a formatted {@link LoggingLevel#INFO info} message to the logger.
+   *
+   * @param message The message to log.
+   * @param args    The objects to format.
+   *
+   * @throws IllegalArgumentException If the message or args are null.
+   * @see #info(String)
+   * @see #log(LoggingLevel, String, Object...)
+   * @since 1.10.2-r0.1
+   */
+  public void info(String message, Object... args) throws IllegalArgumentException {
+    log(LoggingLevel.INFO, message, args);
+  }
+
+  /**
+   * Logs a {@link LoggingLevel#WARNING warning} message to the logger.
+   *
+   * @param message The message to log.
+   *
+   * @throws IllegalArgumentException If the message is null.
+   * @see #warning(String, Object...)
+   * @see #log(LoggingLevel, String)
+   * @since 1.10.2-r0.1
+   */
+  public void warning(String message) throws IllegalArgumentException {
+    log(LoggingLevel.WARNING, message);
+  }
+
+  /**
+   * Logs a formatted {@link LoggingLevel#WARNING warning} message to the logger.
+   *
+   * @param message The message to log.
+   * @param args    The objects to format.
+   *
+   * @throws IllegalArgumentException If the message or args are null.
+   * @see #warning(String)
+   * @see #log(LoggingLevel, String, Object...)
+   * @since 1.10.2-r0.1
+   */
+  public void warning(String message, Object... args) throws IllegalArgumentException {
+    log(LoggingLevel.WARNING, message, args);
+  }
+
+  /**
+   * Logs a {@link LoggingLevel#ERROR error} message to the logger.
+   *
+   * @param message The message to log.
+   *
+   * @throws IllegalArgumentException If the message is null.
+   * @see #error(String, Object...)
+   * @see #log(LoggingLevel, String)
+   * @since 1.10.2-r0.1
+   */
+  public void error(String message) throws IllegalArgumentException {
+    log(LoggingLevel.ERROR, message);
+  }
+
+  /**
+   * Logs a formatted {@link LoggingLevel#ERROR error} message to the logger.
+   *
+   * @param message The message to log.
+   * @param args    The objects to format.
+   *
+   * @throws IllegalArgumentException If the message or args are null.
+   * @see #error(String)
+   * @see #log(LoggingLevel, String, Object...)
+   * @since 1.10.2-r0.1
+   */
+  public void error(String message, Object... args) throws IllegalArgumentException {
+    log(LoggingLevel.ERROR, message, args);
   }
 
 }
