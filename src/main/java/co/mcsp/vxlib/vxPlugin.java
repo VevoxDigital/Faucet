@@ -1,5 +1,6 @@
 package co.mcsp.vxlib;
 
+import co.mcsp.vxlib.logging.vxLogger;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.function.Consumer;
@@ -14,6 +15,8 @@ public abstract class vxPlugin extends JavaPlugin {
 
   private Consumer<vxLib> loadF, disableF;
   private Predicate<vxLib> enableF;
+
+  private vxLogger logger;
 
   /**
    * Assigns a {@link Consumer consumer} function to be called
@@ -57,6 +60,7 @@ public abstract class vxPlugin extends JavaPlugin {
 
   @Override
   public final void onLoad() {
+    logger = new vxLogger(getName(), vxLib.instance == null ? null : vxLib.instance.logger());
     loadF.accept(vxLib.instance);
   }
 
@@ -69,6 +73,10 @@ public abstract class vxPlugin extends JavaPlugin {
   @Override
   public final void onDisable() {
     disableF.accept(vxLib.instance);
+  }
+
+  protected final vxLogger logger() {
+    return logger;
   }
 
 }
