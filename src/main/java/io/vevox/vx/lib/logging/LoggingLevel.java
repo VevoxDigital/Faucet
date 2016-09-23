@@ -1,4 +1,4 @@
-package co.mcsp.vxlib.logging;
+package io.vevox.vx.lib.logging;
 
 import org.bukkit.ChatColor;
 

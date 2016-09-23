@@ -1,12 +1,8 @@
-package co.mcsp.vxlib.logging;
+package io.vevox.vx.lib.logging;
 
 import org.apache.commons.lang3.Validate;
 
 import javax.annotation.Nullable;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 

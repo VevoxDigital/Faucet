@@ -1,6 +1,6 @@
-package co.mcsp.vxlib;
+package io.vevox.vx.lib;
 
-import co.mcsp.vxlib.logging.vxLogger;
+import io.vevox.vx.lib.logging.vxLogger;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.function.Consumer;
@@ -61,17 +61,20 @@ public abstract class vxPlugin extends JavaPlugin {
   @Override
   public final void onLoad() {
     logger = new vxLogger(getName(), vxLib.instance == null ? null : vxLib.instance.logger());
+    if (loadF == null) loadF = vxLib.noImplC;
     loadF.accept(vxLib.instance);
   }
 
   @Override
   public final void onEnable() {
+    if (enableF == null) enableF = vxLib.noImplP;
     if (!enableF.test(vxLib.instance))
       setEnabled(false);
   }
 
   @Override
   public final void onDisable() {
+    if (disableF == null) disableF = vxLib.noImplC;
     disableF.accept(vxLib.instance);
   }
 

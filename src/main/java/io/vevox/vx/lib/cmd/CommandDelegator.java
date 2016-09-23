@@ -1,4 +1,4 @@
-package co.mcsp.vxlib.cmd;
+package io.vevox.vx.lib.cmd;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -31,7 +31,7 @@ public interface CommandDelegator extends CommandExecutor {
    * @param cmd    The command that was executed.
    * @param args   The arguments of the command.
    *
-   * @throws co.mcsp.vxlib.cmd.CommandException.UnhandledCommandException If a command was passed to this delegator
+   * @throws CommandException.UnhandledCommandException If a command was passed to this delegator
    *                                                                      and should not have been delegated here.
    * @throws CommandException                                             If any issues arise during command handling.
    */

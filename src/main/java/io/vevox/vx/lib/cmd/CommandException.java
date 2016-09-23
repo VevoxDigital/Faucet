@@ -1,4 +1,4 @@
-package co.mcsp.vxlib.cmd;
+package io.vevox.vx.lib.cmd;
 
 import org.bukkit.command.Command;
 

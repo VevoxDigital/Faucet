@@ -1,7 +1,7 @@
-package co.mcsp.vxlib;
+package io.vevox.vx.lib;
 
-import co.mcsp.vxlib.logging.LoggingLevel;
-import co.mcsp.vxlib.logging.TransportConsole;
+import io.vevox.vx.lib.logging.LoggingLevel;
+import io.vevox.vx.lib.logging.TransportConsole;
 
 import java.util.function.Consumer;
 import java.util.function.Predicate;
