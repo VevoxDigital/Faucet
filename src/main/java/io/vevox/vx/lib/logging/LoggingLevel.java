@@ -53,8 +53,9 @@ public enum LoggingLevel {
     switch (this) {
       case SILLY:
       case VERBOSE:
-      case INFO:
         return ChatColor.WHITE;
+      case INFO:
+        return ChatColor.AQUA;
       case DEBUG:
         return ChatColor.LIGHT_PURPLE;
       case WARNING:

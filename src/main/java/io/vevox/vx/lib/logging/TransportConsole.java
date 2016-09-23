@@ -1,5 +1,6 @@
 package io.vevox.vx.lib.logging;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
 import java.text.SimpleDateFormat;
@@ -49,9 +50,10 @@ public class TransportConsole implements Transport {
   @Override
   public void receive(TransportedMessage msg) {
     SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
-    System.out.println(BACKSPACE_CHARS +
+    Bukkit.getServer().getConsoleSender().sendMessage(BACKSPACES +
         format.format(new Date()) + '-' +
         msg.level.color() + msg.level.toString().toLowerCase() +
+        ChatColor.WHITE + " " + msg.logger.name +
         ChatColor.RESET + ": " + msg.message);
   }
 

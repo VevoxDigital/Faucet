@@ -112,11 +112,18 @@ public class vxLogger {
   public void log(LoggingLevel level, String message) throws IllegalArgumentException {
     Validate.notNull(level);
     Validate.notNull(message);
+    Transport.TransportedMessage msg = new Transport.TransportedMessage(message, this, level);
     transports.entrySet().stream()
         .filter(e -> level.ordinal() >= e.getValue().level().ordinal())
-        .forEach(e -> e.getValue().receive(new Transport.TransportedMessage(message, this, level)));
+        .forEach(e -> e.getValue().receive(msg));
     if (parent != null)
-      parent.log(level, message);
+      parent.log(msg);
+  }
+
+  private void log(Transport.TransportedMessage msg) {
+    transports.forEach((n, t) -> t.receive(msg));
+    if (parent != null)
+      parent.log(msg);
   }
 
   /**
