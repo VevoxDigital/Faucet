@@ -22,7 +22,7 @@ public class CommandException extends Exception {
    * @since 1.10.2-r0.1
    */
   public static class UnknownArgumentException extends CommandException {
-    UnknownArgumentException(int index, String arg) {
+    public UnknownArgumentException(int index, String arg) {
       super(String.format("Argument %d (\"%s\") is unknown", index + 1, arg));
     }
   }
@@ -34,7 +34,7 @@ public class CommandException extends Exception {
    * @since 1.10.2-r0.1
    */
   public static class MissingArgumentException extends CommandException {
-    MissingArgumentException(int index) {
+    public MissingArgumentException(int index) {
       super(String.format("Argument %d is missing", index + 1));
     }
   }
@@ -46,7 +46,7 @@ public class CommandException extends Exception {
    * @since 1.10.2-r0.1
    */
   public static class InsufficientPermissionsException extends CommandException {
-    InsufficientPermissionsException(String permission) {
+    public InsufficientPermissionsException(String permission) {
       super("Missing permission " + permission);
     }
   }
@@ -58,7 +58,7 @@ public class CommandException extends Exception {
    * @since 1.10.2-r0.1
    */
   public static class ConsoleExecutionException extends CommandException {
-    ConsoleExecutionException() {
+    public ConsoleExecutionException() {
       super("Command must be executed by a player");
     }
   }
@@ -70,7 +70,7 @@ public class CommandException extends Exception {
    * @since 1.10.2-r0.1
    */
   public static class UnhandledCommandException extends CommandException {
-    UnhandledCommandException(Command cmd) {
+    public UnhandledCommandException(Command cmd) {
       super("Command " + cmd.getName() + " is not handled by this delegator");
     }
   }
