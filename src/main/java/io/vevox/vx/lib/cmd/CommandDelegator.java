@@ -26,8 +26,13 @@ public interface CommandDelegator extends CommandExecutor {
     if (name.length() == 0) return false;
     if (name.charAt(0) == '-') return false;
     for (char c : name.toCharArray())
-      if (!( ('0' <= c && c <= '9') || ('a' <= c && c <= 'z') || c == '-' )) return false;
+      if (!isAlphanumeric(c, false, true)) return false;
     return true;
+  }
+
+  static boolean isAlphanumeric(char c, boolean allowCaps, boolean allowDashes) {
+    return ('0' <= c && c <= '9') || ('a' <= c && c <= 'z')
+        || (allowDashes && c == '-') || (allowCaps && 'A' <= c && c <= 'Z');
   }
 
   static CommandFlag createFlag(String name, Predicate<String> validator,
